@@ -2,7 +2,7 @@
 
 If you want a simple, elegant prompt format, you should try this script.
 
-# Usage
+## Usage
 
 1. To modify an user's prompt, run:
 ```
@@ -16,7 +16,7 @@ Use `sudo` if you need to modify root's prompt:
 sudo ./ps1-gen.sh
 ```
 
-# TODO
+## TODO
 
 * Screenshots
 * Ways to accomplish this without user interaction
@@ -25,7 +25,7 @@ sudo ./ps1-gen.sh
 PROMPT_COMMAND='echo -ne "\033]0;${USER}:${PWD/$HOME/~}\007"'
 ```
 
-# Alternatives
+## Alternatives
 
 You can always visit the following URL to modify your prompt:
 ```
