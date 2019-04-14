@@ -1,4 +1,4 @@
-RCol='\e[0m'    # Text Reset
+ResetCol='\e[0m'    # Text Reset
 
 # Regular           Bold                Underline           High Intensity      BoldHigh Intens     Background          High Intensity Backgrounds
 Bla='\e[0;30m';     BBla='\e[1;30m';    UBla='\e[4;30m';    IBla='\e[0;90m';    BIBla='\e[1;90m';   On_Bla='\e[40m';    On_IBla='\e[0;100m';
@@ -10,16 +10,36 @@ Pur='\e[0;35m';     BPur='\e[1;35m';    UPur='\e[4;35m';    IPur='\e[0;95m';    
 Cya='\e[0;36m';     BCya='\e[1;36m';    UCya='\e[4;36m';    ICya='\e[0;96m';    BICya='\e[1;96m';   On_Cya='\e[46m';    On_ICya='\e[0;106m';
 Whi='\e[0;37m';     BWhi='\e[1;37m';    UWhi='\e[4;37m';    IWhi='\e[0;97m';    BIWhi='\e[1;97m';   On_Whi='\e[47m';    On_IWhi='\e[0;107m';
 
+QRedRoot='\e[1;38;5;196m';
+
+QGreenLabel='\e[1;38;5;28m';
+QRedLabel='\e[1;38;5;124m';
+QOrangeLabel='\e[1;38;5;202m';
+QYellowLabel='\e[1;38;5;178m';
+QBlueLabel='\e[1;38;5;25m';
+QPurpleLabel='\e[1;38;5;91m';
+
 # standard colors
-for C in {40..47}; do
-    echo -en "\e[${C}m$C "
-done
+#for C in {40..47}; do
+#    echo -en "\e[${C}m$C "
+#done
 # high intensity colors
-for C in {100..107}; do
-    echo -en "\e[${C}m$C "
-done
+#for C in {100..107}; do
+#    echo -en "\e[${C}m$C "
+#done
 # 256 colors
-for C in {16..255}; do
-    echo -en "\e[48;5;${C}m$C "
-done
-echo -e "\e(B\e[m"
+#for C in {16..255}; do
+#    echo -en "\e[48;5;${C}m$C "
+#done
+#echo -e "\e(B\e[m"
+
+echo "Color options:"
+
+echo -e "${QRedRoot}root${ResetCol}"
+
+echo -e "${QGreenLabel}green${ResetCol}"
+echo -e "${QRedLabel}red${ResetCol}"
+echo -e "${QOrangeLabel}orange${ResetCol}"
+echo -e "${QYellowLabel}yellow${ResetCol}"
+echo -e "${QBlueLabel}blue${ResetCol}"
+echo -e "${QPurpleLabel}purple${ResetCol}"
