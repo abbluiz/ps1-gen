@@ -20,6 +20,10 @@ sudo ./ps1-gen.sh
 
 * Screenshots
 * Ways to accomplish this without user interaction
+* Modify `gnome-terminal` title. Add this to `.bashrc`:
+```
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+```
 
 # Alternatives
 
