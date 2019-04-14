@@ -1,6 +1,97 @@
 #!/bin/bash
 
-ResetCol='\e[0m';    # Text Reset
+ResetCol='\033[0m'; # Text Reset
+BWhi='\033[1;37m';
+Whi='\033[0;37m';
+
+QRedRoot='\033[1;38;5;196m';
+
+QGreenLabel='\033[1;38;5;28m';
+QRedLabel='\033[1;38;5;124m';
+QOrangeLabel='\033[1;38;5;202m';
+QYellowLabel='\033[1;38;5;178m';
+QBlueLabel='\033[1;38;5;25m';
+QPurpleLabel='\033[1;38;5;91m';
+
+printf "\n${BWhi}Simple PS1 .bashrc modifier by${ResetCol} ${QRedRoot}a${QGreenLabel}b${QRedLabel}b${QOrangeLabel}l${QYellowLabel}u${QBlueLabel}i${QPurpleLabel}z\n\n"
+
+printf "${ResetCol}Regular user PS1 format (variable relativePath color):\n\t${BWhi}username${ResetCol}:${QGreenLabel}relativePath${ResetCol}$ \n\n"
+
+printf "${ResetCol}Root PS1 format:\n\t${QRedRoot}root${ResetCol}:${BWhi}absolutePath${ResetCol}# \n\n"
+
+echo -e "${ResetCol}Color options:"
+
+echo -e "${QRedRoot}root${ResetCol}"
+
+echo -e "${QGreenLabel}green${ResetCol}"
+echo -e "${QRedLabel}red${ResetCol}"
+echo -e "${QOrangeLabel}orange${ResetCol}"
+echo -e "${QYellowLabel}yellow${ResetCol}"
+echo -e "${QBlueLabel}blue${ResetCol}"
+echo -e "${QPurpleLabel}purple${ResetCol}"
+
+while :
+do
+    printf "\n"
+    echo -e "Which type of PS1 format do you want, ${QRedRoot}root${ResetCol} or ${BWhi}regular${ResetCol}?"
+    read format
+    case $format in
+        root)            
+            echo "export PS1=\"\[\$(tput bold)\]\[${QRedRoot}\]\u\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]:\[\$(tput bold)\]\[${BWhi}\]\w\[\$(tput sgr0)\]\\\\$ \[\$(tput sgr0)\]\"" >> ~/.bashrc
+            break
+            ;;
+        regular)
+            while :
+            do
+                printf "\n"
+                echo -e "Which color do you want on your relative path? "
+                read color
+                case $color in
+                    root)
+                        echo "export PS1=\"\[\$(tput bold)\]\[${BWhi}\]\u\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]:\[\$(tput bold)\]\[\$(tput sgr0)\]\[${QRedRoot}\]\W\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]\\\\$ \[\$(tput sgr0)\]\"" >> ~/.bashrc
+                        break
+                        ;;
+                    green)
+                        echo "export PS1=\"\[\$(tput bold)\]\[${BWhi}\]\u\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]:\[\$(tput bold)\]\[\$(tput sgr0)\]\[${QGreenLabel}\]\W\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]\\\\$ \[\$(tput sgr0)\]\"" >> ~/.bashrc
+                        break
+                        ;;
+                    red)
+                        echo "export PS1=\"\[\$(tput bold)\]\[${BWhi}\]\u\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]:\[\$(tput bold)\]\[\$(tput sgr0)\]\[${QRedLabel}\]\W\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]\\\\$ \[\$(tput sgr0)\]\"" >> ~/.bashrc
+                        break
+                        ;;
+                    orange)
+                        echo "export PS1=\"\[\$(tput bold)\]\[${BWhi}\]\u\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]:\[\$(tput bold)\]\[\$(tput sgr0)\]\[${QOrangeLabel}\]\W\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]\\\\$ \[\$(tput sgr0)\]\"" >> ~/.bashrc
+                        break
+                        ;;
+                    yellow)
+                        echo "export PS1=\"\[\$(tput bold)\]\[${BWhi}\]\u\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]:\[\$(tput bold)\]\[\$(tput sgr0)\]\[${QYellowLabel}\]\W\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]\\\\$ \[\$(tput sgr0)\]\"" >> ~/.bashrc
+                        break
+                        ;;
+                    blue)
+                        echo "export PS1=\"\[\$(tput bold)\]\[${BWhi}\]\u\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]:\[\$(tput bold)\]\[\$(tput sgr0)\]\[${QBlueLabel}\]\W\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]\\\\$ \[\$(tput sgr0)\]\"" >> ~/.bashrc
+                        break
+                        ;;
+                    purple)
+                        echo "export PS1=\"\[\$(tput bold)\]\[${BWhi}\]\u\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]:\[\$(tput bold)\]\[\$(tput sgr0)\]\[${QPurpleLabel}\]\W\[\$(tput sgr0)\]\[\$(tput sgr0)\]\[${ResetCol}\]\\\\$ \[\$(tput sgr0)\]\"" >> ~/.bashrc
+                        break
+                        ;;
+                    *)
+                        printf "\n"
+                        echo -e "${QRedRoot}That is not a supported color.${ResetCol}"
+                        ;;
+                esac
+            done
+            break
+            ;;
+        *)
+            printf "\n"
+            echo -e "${QRedRoot}That is not a supported format.${ResetCol}"
+            ;;
+    esac
+done
+
+printf "\n"
+echo "Your PS1 was modified. Restart terminal to see changes."
 
 # Regular           Bold                Underline           High Intensity      BoldHigh Intens     Background          High Intensity Backgrounds
 # Bla='\e[0;30m';     BBla='\e[1;30m';    UBla='\e[4;30m';    IBla='\e[0;90m';    BIBla='\e[1;90m';   On_Bla='\e[40m';    On_IBla='\e[0;100m';
@@ -25,23 +116,3 @@ ResetCol='\e[0m';    # Text Reset
 #    echo -en "\e[48;5;${C}m$C "
 #done
 #echo -e "\e(B\e[m"
-
-QRedRoot='\e[1;38;5;196m';
-
-QGreenLabel='\e[1;38;5;28m';
-QRedLabel='\e[1;38;5;124m';
-QOrangeLabel='\e[1;38;5;202m';
-QYellowLabel='\e[1;38;5;178m';
-QBlueLabel='\e[1;38;5;25m';
-QPurpleLabel='\e[1;38;5;91m';
-
-echo "Color options:"
-
-echo -e "${QRedRoot}root${ResetCol}"
-
-echo -e "${QGreenLabel}green${ResetCol}"
-echo -e "${QRedLabel}red${ResetCol}"
-echo -e "${QOrangeLabel}orange${ResetCol}"
-echo -e "${QYellowLabel}yellow${ResetCol}"
-echo -e "${QBlueLabel}blue${ResetCol}"
-echo -e "${QPurpleLabel}purple${ResetCol}"
