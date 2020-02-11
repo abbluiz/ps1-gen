@@ -9,14 +9,17 @@ http://bashrcgenerator.com/
 
 ## Usage
 
-0. Clone this repository and navigate to its folder using your favorite terminal emulator.
-1. To modify an user's prompt, run:
+1. Clone this repository and navigate to its folder using your favorite bash shell emulator:
+```
+git clone https://github.com/abbluiz/ps1-gen.git && cd ps1-gen
+```
+2. To modify an user's prompt, run:
 ```
 ./ps1-gen.sh
 ```
-2. Choose format and colors; follow provided instructions.
-3. Restart terminal to see changes.
-4. Use `sudo` to modify root's prompt (optional):
+3. Choose format and colors; follow provided instructions.
+4. Restart terminal to see changes.
+5. Use `sudo` to modify root's prompt (optional):
 ```
 sudo ./ps1-gen.sh
 ```
@@ -25,4 +28,6 @@ sudo ./ps1-gen.sh
 
 * Add screenshots to this `README.md` file.
 * Implement non-interactive mode.
-* Implement uninstaller (remove PS1 from `~/.bashrc`).
+* Implement advanced color options.
+* Implement `~/.bashrc` cleaner.
+* Implement installer/uninstaller/updater.
