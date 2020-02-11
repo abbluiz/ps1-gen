@@ -1,33 +1,28 @@
-# Prompt modification
+# Prompt style modification 💅
 
-If you want a simple, elegant prompt format, you should try this script.
+If you want a simple, elegant prompt format, you should try this script. It will generate a customized PS1 environment variable and put it inside your `~/.bashrc` file. 
+
+As an advanced alternative to using this script, you can visit the following URL:
+```
+http://bashrcgenerator.com/
+```
 
 ## Usage
 
+0. Clone this repository and navigate to its folder using your favorite terminal emulator.
 1. To modify an user's prompt, run:
 ```
 ./ps1-gen.sh
 ```
-2. Choose format and colors; follow cli output instructions
-3. Restart terminal to see changes
-
-Use `sudo` if you need to modify root's prompt:
+2. Choose format and colors; follow provided instructions.
+3. Restart terminal to see changes.
+4. Use `sudo` to modify root's prompt (optional):
 ```
 sudo ./ps1-gen.sh
 ```
 
-## TODO
+## Roadmap
 
-* Screenshots
-* Ways to accomplish this without user interaction
-* Modify `gnome-terminal` title. Add this to `.bashrc`:
-```
-PROMPT_COMMAND='echo -ne "\033]0;${USER}:${PWD/$HOME/~}\007"'
-```
-
-## Alternatives
-
-You can always visit the following URL to modify your prompt:
-```
-http://bashrcgenerator.com/
-```
+* Add screenshots to this `README.md` file.
+* Implement non-interactive mode.
+* Implement uninstaller (remove PS1 from `~/.bashrc`).
